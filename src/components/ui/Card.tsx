@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { Toaster, toast } from "sonner";
 
 const Card = () => {
     const [sequence] = useState<Array<string | number>>(["System Theme Detector", 5000, "Highly Supported On Windows", 5000, "Highly Supported On Macbook", 5000]);
@@ -29,6 +30,13 @@ const Card = () => {
     const gotoThemeSettings = (e: React.MouseEvent<HTMLButtonElement>) => {
         const handler = e.currentTarget as HTMLButtonElement;
         const currentHandler = handler.dataset.name;
+
+        const isMobile = /Andriod|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+            toast("Sorry, You're On Mobile... TECHNOLOGIAAA😂😂");
+            return;
+        }
+
         switch(currentHandler) {
             case "window":
                 location.href = "ms-settings:personalization-colors";
@@ -81,6 +89,7 @@ const Card = () => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 }

@@ -31,9 +31,10 @@ const Card = () => {
         const handler = e.currentTarget as HTMLButtonElement;
         const currentHandler = handler.dataset.name;
 
-        const isMobile = /Andriod|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isMobile = window.innerWidth <= 550;
+
         if (isMobile) {
-            toast("Sorry, You're On Mobile... TECHNOLOGIAAA😂😂");
+            toast("Sorry, You're Likely On Mobile... TECHNOLOGIAAA😂😂");
             return;
         }
 

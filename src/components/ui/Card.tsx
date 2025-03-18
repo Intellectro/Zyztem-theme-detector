@@ -41,6 +41,8 @@ const Card = () => {
         }
     }
 
+    systemThemeHandler.addEventListener("change", (e) => setThemeStatus(e.matches));
+
     const handleBrightness = (e: React.FormEvent<HTMLInputElement>) => {
         const inputVal = e.currentTarget.value;
         document.body.style.filter = `brightness(${+inputVal}%)`;
@@ -54,7 +56,7 @@ const Card = () => {
         <div className="w-full px-10 py-5">
             <div className="w-full md:w-[45%] px-8 md:px-15 py-10 mx-auto rounded-lg shadow-[0px_0px_8px_rgba(225,225,225,0.8)] dark:shadow-[0px_0px_5px_rgba(0,0,0,0.6)] backdrop-blur-[150px]">
                 <div className="flex flex-col gap-y-5">
-                    <div className="text-center font-[1000] text-[20px]">{themeStatus ? "DARK MODE ACTIVE" : "LIGHT MODE ACTIVE"}</div>
+                    <div className="text-center font-[1000] text-[20px]">{themeStatus ? "DARK MODE ACTIVE🥶" : "LIGHT MODE ACTIVE😇"}</div>
                     <div className="flex flex-col gap-y-3">
                         <TypeAnimation sequence={sequence} wrapper="div" cursor={true} repeat={Infinity} className="text-[15px] md:text-[18px] uppercase font-[550] text-center" />
                         <div className="text-[13.5px] font-[500]">System Theme Detector is a lightweight tool that detects whether a user's operating system is set to light mode or dark mode. It helps developers and users automatically adjust their application's UI to match the system’s theme preference.</div>
